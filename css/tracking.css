@@ -1,0 +1,550 @@
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Sorts+Mill+Goudy);
+p {
+  font-family: 'Sorts Mill Goudy', serif;
+  font-size: 28px;
+  margin-bottom: 2em;
+}
+
+h1, h2, h3, #test .menu, #test .icon-menu, #test .circle span.tapCircle, #test .circle span.swipeCircle, #data a.export {
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
+  color: #E74C3C;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.delete {
+  text-decoration: line-through;
+}
+
+.slabtexted .slabtext {
+  display: -moz-inline-box;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.slabtextinactive .slabtext {
+  display: inline;
+  white-space: normal;
+  font-size: 1em !important;
+  letter-spacing: inherit !important;
+  word-spacing: inherit !important;
+  *letter-spacing: 0 !important;
+  *word-spacing: 0 !important;
+}
+
+.slabtextdone .slabtext {
+  display: block;
+}
+
+#about {
+  text-align: justify;
+}
+
+#about span {
+  color: #3498DB;
+}
+
+#about span.slabtext {
+  color: #000;
+}
+
+#about span.slabtext:nth-child(1) {
+  line-height: 1.1em;
+  margin-top: -0.1em;
+}
+
+#about span.slabtext:nth-child(2) {
+  line-height: 0.9em;
+}
+
+#about span.slabtext:nth-child(3) {
+  line-height: 1.1em;
+}
+
+#about span.slabtext:nth-child(4) {
+  line-height: 0.9em;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ECF0F1;
+}
+
+.row {
+  margin: 3em 0;
+}
+
+div {
+  width: 100%;
+  /*     padding: 50px 0;
+ */
+}
+
+div.top {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+
+div.bottom {
+  position: relative;
+}
+
+div .img {
+  min-height: 100px;
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+
+div .img img {
+  margin-top: 20%;
+  max-width: 100%;
+}
+
+div .text {
+  padding-right: 3em;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img#hand {
+  position: relative;
+  bottom: 3em;
+}
+
+.jumbotron {
+  background: #ECF0F1;
+  padding: 0;
+}
+
+.jumbotron img, .jumbotron pre {
+  width: 100%;
+  height: auto;
+}
+
+.jumbotron .container-fluid {
+  padding: 0;
+}
+
+iframe {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.footer {
+  margin-top: 6em;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 14px;
+}
+
+div.shapes {
+  text-align: center;
+}
+
+div.shapes .old {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+div.shapes div {
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  moz-outline-radius: 30px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 30px;
+  opacity: 0.8;
+  -webkit-transition: width 0.2s, height 0.2s, transform 0.5s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 0.2s, height 0.2s, transform 0.5s;
+}
+
+div.shapes div span {
+  padding-top: 50%;
+  text-align: center;
+  line-height: 120px;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: #ECF0F1;
+  text-transform: uppercase;
+}
+
+div.shapes div:nth-child(1) {
+  background-color: #3498DB;
+}
+
+div.shapes div:nth-child(2) {
+  background-color: #3498DB;
+}
+
+div.shapes div:nth-child(3) {
+  background-color: #2C3E50;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.right {
+  transform: translate(100px, 0px);
+}
+
+.up {
+  transform: translate(0px, 100px);
+}
+
+.down {
+  transform: translate(-100px, -100px);
+}
+
+.swipeleft {
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  top: 50%;
+  left: 50%;
+  animation-name: swipeleft;
+}
+
+.swiperight {
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  top: 50%;
+  left: 50%;
+  animation-name: swiperight;
+}
+
+@keyframes swipeleft {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(-200px, 0px);
+  }
+  80% {
+    transform: translate(20px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes swiperight {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(200px, 0px);
+  }
+  80% {
+    transform: translate(-20px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.btn.outline {
+  background: none;
+  padding: 12px 22px;
+}
+
+.btn-primary.outline {
+  border: 2px solid #0099cc;
+  color: #0099cc;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+  color: #33a6cc;
+  border-color: #33a6cc;
+}
+
+.btn-primary.outline:active, .btn-primary.outline.active {
+  border-color: #007299;
+  color: #007299;
+  box-shadow: none;
+}
+
+.btn {
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  position: relative;
+  margin-top: 25%;
+  animation-name: jittery;
+}
+
+@keyframes jittery {
+  10% {
+    transform: translate(-20px, -40px);
+  }
+  20% {
+    transform: translate(0px, 40px);
+  }
+  30% {
+    transform: translate(0px, -50px);
+  }
+  40% {
+    transform: translate(20px, 100px);
+  }
+  50% {
+    transform: translate(-40px, -150px);
+  }
+  60% {
+    transform: translate(20px, 0px);
+  }
+  70% {
+    transform: translate(-20px, 80px);
+  }
+  80% {
+    transform: translate(30px, 0px);
+  }
+  90% {
+    transform: translate(20px, -80px);
+  }
+  100% {
+    transform: translate(30px, 10px);
+  }
+}
+
+/* Pretty printing styles. Used with prettify.js. */
+/* Vim sunburst theme by David Leibovic */
+pre .str, code .str {
+  color: #65B042;
+}
+
+/* string  - green */
+pre .kwd, code .kwd {
+  color: #E28964;
+}
+
+/* keyword - dark pink */
+pre .com, code .com {
+  color: #AEAEAE;
+  font-style: italic;
+}
+
+/* comment - gray */
+pre .typ, code .typ {
+  color: #89bdff;
+}
+
+/* type - light blue */
+pre .lit, code .lit {
+  color: #3387CC;
+}
+
+/* literal - blue */
+pre .pun, code .pun {
+  color: #fff;
+}
+
+/* punctuation - white */
+pre .pln, code .pln {
+  color: #fff;
+}
+
+/* plaintext - white */
+pre .tag, code .tag {
+  color: #89bdff;
+}
+
+/* html/xml tag    - light blue */
+pre .atn, code .atn {
+  color: #bdb76b;
+}
+
+/* html/xml attribute name  - khaki */
+pre .atv, code .atv {
+  color: #65B042;
+}
+
+/* html/xml attribute value - green */
+pre .dec, code .dec {
+  color: #3387CC;
+}
+
+/* decimal - blue */
+pre.prettyprint, code.prettyprint {
+  background-color: #2C3E50;
+}
+
+pre.prettyprint {
+  /*         width: 95%;
+        margin: 1em auto;
+        padding: 1em;
+        white-space: pre-wrap; */
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #AEAEAE;
+}
+
+/* IE indents via margin-left */
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: none;
+}
+
+/* Alternate shading for lines */
+@media print {
+  pre .str, code .str {
+    color: #060;
+  }
+  pre .kwd, code .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+  pre .com, code .com {
+    color: #600;
+    font-style: italic;
+  }
+  pre .typ, code .typ {
+    color: #404;
+    font-weight: bold;
+  }
+  pre .lit, code .lit {
+    color: #044;
+  }
+  pre .pun, code .pun {
+    color: #440;
+  }
+  pre .pln, code .pln {
+    color: #000;
+  }
+  pre .tag, code .tag {
+    color: #006;
+    font-weight: bold;
+  }
+  pre .atn, code .atn {
+    color: #404;
+  }
+  pre .atv, code .atv {
+    color: #060;
+  }
+}
+
+@media (max-width: 1000px) {
+  div .img img {
+    margin: 3em 0;
+  }
+  div .text {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  .btn {
+    margin-top: 40%;
+  }
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+#test {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  /* Safari */
+  -webkit-align-items: center;
+  /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+}
+
+#test .menu {
+  height: 5%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #E74C3C;
+  color: #FFF;
+  text-align: center;
+  line-height: 50px;
+}
+
+#test .icon-menu {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+}
+
+#test .circle span.tapCircle, #test .circle span.swipeCircle {
+  color: #E74C3C;
+  position: relative;
+  bottom: 100px;
+}
+
+#data {
+  width: 700px;
+  height: 100%;
+  position: fixed;
+  left: -700px;
+  background-color: #2C3E50;
+  z-index: 999;
+  padding: 2em 4em;
+  max-width: 100%;
+  opacity: 0.98;
+}
+
+#data a.export {
+  padding: 10px 20px;
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 100px;
+  background: #E74C3C;
+  color: #ECF0F1;
+  text-decoration: none;
+}
+
+#data .icon-close {
+  cursor: pointer;
+  text-align: right;
+}
+
+#data .container {
+  padding: 0;
+  color: #ECF0F1;
+}
+
+/* table {
+	margin: 0 auto;
+	tr{text-align: center; }
+
+	tr:nth-child(1) {
+		@extend h3;
+		td {
+			font-size: 22px;
+		padding: 1em;
+		}
+
+	}
+} */

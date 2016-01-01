@@ -1,0 +1,391 @@
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Sorts+Mill+Goudy);
+
+// COLORS
+
+$red: #E74C3C;
+$blue: #3498DB;
+$teal: #2980B9;
+$white: #ECF0F1;
+$grey: #2C3E50;
+
+
+// FONTS
+
+p {
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 28px;
+    margin-bottom: 2em;
+}
+@mixin header {
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    color: $red;
+}
+h1,h2,h3 {
+    @include header;
+}
+h1 {font-size:80px}
+h2 {font-size:60px; text-align:center}
+.delete {
+    text-decoration: line-through;
+}
+
+// SLABTEXT
+
+.slabtexted .slabtext
+        {
+        display:-moz-inline-box;
+        display:inline-block;
+        white-space:nowrap;
+        }
+.slabtextinactive .slabtext
+        {
+        display:inline;
+        white-space:normal;
+        font-size:1em !important;
+        letter-spacing:inherit !important;
+        word-spacing:inherit !important;
+        *letter-spacing:0 !important;
+        *word-spacing:0 !important;
+        }
+.slabtextdone .slabtext
+        {
+        display:block;
+        }
+
+#about {
+    text-align:justify;
+    span {
+        color:$blue;
+    }
+}
+#about span.slabtext {
+    color:#000;
+    &:nth-child(1) {line-height:1.1em; margin-top:-0.1em}
+    &:nth-child(2) {line-height:0.9em; }
+    &:nth-child(3) {line-height:1.1em}
+    &:nth-child(4) {line-height:0.9em}
+}
+
+// LAYOUT
+
+body,html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: $white;
+}
+.row {
+    margin:3em 0;
+}
+div {
+    width: 100%;
+/*     padding: 50px 0;
+ */    &.top {
+
+        position: relative;
+        height:100%;
+        min-height: 100%;
+        text-align:center;
+    }
+    &.bottom {
+        position: relative;
+    }
+    .img {
+        min-height:100px;
+        position: relative;
+        text-align: center;
+        margin:auto;
+
+        img {
+            margin-top: 20%;
+            max-width: 100%
+        }
+
+    }
+    .text {
+        padding-right: 3em;
+    }
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img#hand {
+    position: relative;
+    bottom: 3em;
+}
+
+.jumbotron {
+    background: $white;
+    padding: 0;
+    img, pre {
+        width: 100%;
+        height:auto;
+    }
+    .container-fluid {
+        padding:0;
+    }
+}
+
+iframe {
+    width:100%;
+    margin-top: 2em;
+}
+
+.footer {
+    margin-top: 6em;
+    text-align: center;
+    p {font-size: 14px;}
+}
+
+// SHAPES
+
+div.shapes {
+    text-align:center;
+    .old {
+            width:60px;
+            height:60px;
+            border-radius:50%;
+        }
+    div {
+    width:120px;
+    height:120px;
+    padding:0;
+    moz-outline-radius: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+    margin:30px;
+    opacity:0.8;
+    -webkit-transition: width 0.2s, height 0.2s, transform 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.2s, height 0.2s, transform 0.5s;
+    span {
+        padding-top: 50%;
+        text-align: center;
+        line-height: 120px;
+        font-size: 20px;
+        font-family: 'Montserrat';
+        color: $white;
+        text-transform:uppercase;
+    }
+
+    &:nth-child(1) {
+        background-color:$blue;
+    }
+    &:nth-child(2) {
+        background-color:$blue;
+    }
+    &:nth-child(3) {
+        background-color:$grey;
+    }
+
+
+    }
+
+}
+.opacity {
+    opacity:0.5;
+}
+.left {
+
+}
+.right {
+    transform:translate(100px,0px);
+}
+.up {
+    transform:translate(0px,100px);
+}
+.down {
+    transform:translate(-100px,-100px);
+}
+
+.swipeleft {
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    top:50%;
+    left:50%;
+    animation-name: swipeleft;
+}
+
+.swiperight {
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    top:50%;
+    left:50%;
+    animation-name: swiperight;
+}
+
+@keyframes swipeleft {
+    0% {
+        transform: translate(0px,0px);
+    }
+    30% {
+        transform: translate(-200px,0px);
+    }
+
+    80% {
+        transform: translate(20px,0px);
+    }
+    100% {
+        transform: translate(0px,0px);
+    }
+}
+@keyframes swiperight {
+    0% {
+        transform: translate(0px,0px);
+    }
+    30% {
+        transform: translate(200px,0px);
+    }
+
+    80% {
+        transform: translate(-20px,0px);
+    }
+    100% {
+        transform: translate(0px,0px);
+    }
+}
+
+
+// BUTTON
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+
+.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+
+.btn {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    position: relative;
+    margin-top:25%;
+    animation-name: jittery;
+}
+
+.btn:hover {
+
+}
+
+@keyframes jittery {
+    10% {
+        transform: translate(-20px, -40px);
+    }
+    20% {
+        transform: translate(0px, 40px);
+    }
+    30% {
+        transform: translate(0px, -50px);
+    }
+    40% {
+        transform: translate(20px, 100px);
+    }
+    50% {
+        transform: translate(-40px, -150px);
+    }
+    60% {
+        transform: translate(20px, 0px);
+    }
+    70% {
+        transform: translate(-20px, 80px);
+    }
+    80% {
+        transform: translate(30px, 0px);
+    }
+    90% {
+        transform: translate(20px, -80px);
+    }
+    100% {
+        transform: translate(30px, 10px);
+    }
+}
+
+// Code pretify Sunburst Theme
+
+/* Pretty printing styles. Used with prettify.js. */
+/* Vim sunburst theme by David Leibovic */
+
+pre .str, code .str { color: #65B042; } /* string  - green */
+pre .kwd, code .kwd { color: #E28964; } /* keyword - dark pink */
+pre .com, code .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
+pre .typ, code .typ { color: #89bdff; } /* type - light blue */
+pre .lit, code .lit { color: #3387CC; } /* literal - blue */
+pre .pun, code .pun { color: #fff; } /* punctuation - white */
+pre .pln, code .pln { color: #fff; } /* plaintext - white */
+pre .tag, code .tag { color: #89bdff; } /* html/xml tag    - light blue */
+pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
+pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
+pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
+
+pre.prettyprint, code.prettyprint {
+        background-color: $grey;
+}
+
+pre.prettyprint {
+/*         width: 95%;
+        margin: 1em auto;
+        padding: 1em;
+        white-space: pre-wrap; */
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+  pre .str, code .str { color: #060; }
+  pre .kwd, code .kwd { color: #006; font-weight: bold; }
+  pre .com, code .com { color: #600; font-style: italic; }
+  pre .typ, code .typ { color: #404; font-weight: bold; }
+  pre .lit, code .lit { color: #044; }
+  pre .pun, code .pun { color: #440; }
+  pre .pln, code .pln { color: #000; }
+  pre .tag, code .tag { color: #006; font-weight: bold; }
+  pre .atn, code .atn { color: #404; }
+  pre .atv, code .atv { color: #060; }
+}
+
+
+
+// BREAKPOINTS
+
+@media (max-width: 1000px) {
+    div {
+    .img {
+        img {
+            margin:3em 0;
+            }
+        }
+    .text {
+        padding-left:2em;
+        padding-right: 2em;
+
+    }
+    }
+    .btn {
+        margin-top: 40%;
+    }
+}

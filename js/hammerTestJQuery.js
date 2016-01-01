@@ -1,15 +1,14 @@
-// GLOBAL VARIABLES & OBJECTS
-var circle = $("#circle"),
+// GLOBAL VARIABLES & OBJECTS - Initially I started with a defined object for testing but expanded to all <a> tags in order to target anything with a link as a potential button press. This seems like the only way to go via Hammer
 
-	// Do I need to target the parent element?
-	suspect = $("div"),
-	
-	link = $("a").parent(),
+var link = $("a"),
+	body = $('body'),
 	carousel = $(".carousel"),
-	//event = $(event),
-	average = function (total,events) {
+	//tapThreshold = link.data("hammer").get("tap").options.threshold,
+
+	average = function(total,events) {
 		return total/events;
 	},
+	
 	touch = {
 		distance : 0,
 		velocity : 0,
@@ -37,39 +36,43 @@ var circle = $("#circle"),
 	};
 
 // INIT HAMMER
-link.hammer();
-link.on("tap" "swipe" "scroll", function( event ){
-	
+body.hammer();
+body.on("tap swipe hold", link, function(ev) {
 	// Detect gesture parameters
-	//console.log(event.gesture);
+	//console.log(ev.gesture);
 	
 	// Run main functions
-	detect(event);
-	reSet(event);
+	detect(ev);
+	reSet(ev);
 });
 
 // To detect what the intended target of the event likely was
 function detect(ev) {
+	// Variables
 	var intended = "";
 	var target = $(ev.target);
-	//var newDistance = ev.distance;
 
-	// if (target.has(link)) {
-	if (target = $("a")) {
+	// Where is a swipe likely? For example a carousel class, where if there is a significant increase in the ev.gesture.distance then assume that this is a swipe, if not, is the target a link, else it is what it is.
+	if ( (ev.target in carousel) && (ev.gesture.distance > (tapThreshold * 2)) ) {
+		intended = "swipe";
+		intendedSwipe.distance += ev.gesture.distance;
+		intendedSwipe.deltaTime += ev.gesture.deltaTime;
+		intendedSwipe.swipes ++;
+	} 
+	// if (target = $("a"))
+	else {
 		intended = "tap";
 		intendedTap.distance += ev.gesture.distance;
 		intendedTap.deltaTime += ev.gesture.deltaTime;
 		intendedTap.taps ++;
-	} else if (ev.target in carousel) {
-		intended = "swipe";
-		intendedSwipe.distance += ev.distance;
-		intendedSwipe.swipes ++;
-	} else {
+	} 
+	/*
+	else {
 		intended = ev.type;
 		touch.distance += ev.distance;
 		touch.touches ++;
 	}
-
+	*/
 };
 
 // TO RECALIBRATE THE THRESHOLDS BASED ON THE VALUES of the event
@@ -78,19 +81,26 @@ function reSet(ev) {
     	var distance = parseInt(intendedTap.distance);
     	var eventX = parseInt(intendedTap.taps);
     	var newAverage = distance / eventX;
-    	//console.log(distance, eventX, newAverage);
-    	link.data('hammer').get('tap').set({threshold:newAverage});
-    	console.log(link.data('hammer').get('tap').options.threshold);
-    	//link.css("width",newAverage*2).css("height",newAverage*2);
+    	// console.log(distance, eventX, newAverage);
+
+    	//If the new values > default values
+    	if (newAverage > 2) {
+    		body.data('hammer').get('tap').set({threshold:newAverage});
+    		console.log("New tap threshold: " + body.data('hammer').get('tap').options.threshold);
+    		//link.css("width",newAverage*2).css("height",newAverage*2);
+    	}
+    	
     } if (intendedTap.deltaTime > 0) {
     	var totalTime = parseInt(intendedTap.deltaTime);
     	var eventX = parseInt(intendedTap.taps);
     	var newAverage = totalTime / eventX;
-    	console.log(totalTime, newAverage);
+    	//console.log(totalTime, newAverage);
+
+    	//If the new values > default values
     	if (newAverage > 250) {
-    		console.log(totalTime, eventX, newAverage);
-    		link.data('hammer').get('tap').set({time:newAverage});
-    		console.log(link.data('hammer').get('tap').options.time);
+    		//console.log(totalTime, eventX, newAverage);
+    		body.data('hammer').get('tap').set({time:newAverage});
+    		console.log("New time threshold: " + body.data('hammer').get('tap').options.time);
     	};
     };
 };
